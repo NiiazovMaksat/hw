@@ -1,20 +1,30 @@
 from random import randint
+secret = []
+history = []
 class ControlGame():
     def __init__(self, player_nums: dict):
-        self.secret_nums = [6, 1, 2, 5]#self.create_secret_nums()
+        self.secret_nums = secret
+        self.create_secret_nums()
         self.player_nums = player_nums
+
         player_nums = self.parse_nums(self.player_nums)
         secret_nums = self.parse_nums(self.secret_nums)
         self.bulls = self.count_bulls(player_nums, secret_nums)
         self.cows = self.count_cows() - self.bulls
+        global history
+        history.append(player_nums)
+        self.history = history
+
+    def add_player_nums(self, player_nums: dict):
+        self.player_nums = player_nums
 
     def create_secret_nums(self):
-        nums = []
-        while len(nums) < 4:
-            num = randint(1,10)
-            if num not in nums:
-                nums.append(num)
-        return nums
+        global secret
+        if len(secret)<1:
+            while len(secret) < 4:
+                num = randint(1,10)
+                if num not in secret:
+                    secret.append(num)
 
     def count_bulls(self, player_nums, secret_nums):
         bulls = 0

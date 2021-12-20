@@ -27,12 +27,13 @@
     </form>
 </div>
 <div>
+    <h5>{{ secret }}</h5>
     {% if  bulls == 4 %}
         <h1>You WON!</h1>
     {% else %}
         <h2>Result: Bulls:{{ bulls }}  Cows:{{ cows }} </h2>
     {% endif %}
-
+    <p>{{ history }}</p>
 </div>
 </body>
 </html>

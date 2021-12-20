@@ -26,6 +26,7 @@ def game(request):
                 'bulls': a.bulls,
                 'cows': a.cows,
                 'player': a.player_nums,
-                'secret': a.secret_nums
+                'secret': a.secret_nums,
+                'history': a.history
             }
             return render(request, 'index.html', context)
