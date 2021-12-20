@@ -8,6 +8,31 @@
     <title>Document</title>
 </head>
 <body>
-<h1>hello</h1>
+<div class="calculator">
+    <h1>Cows & Bulls</h1>
+    <h5>Enter 4 non-repeating numbers from 1 to 10</h5>
+    <form action="/" method="post">
+
+        <div class="numbers">
+            {% csrf_token %}
+            <label for="first_num" >Your Num</label>
+            <input type="text" id="first_num" name="first" required><br>
+            <br>
+        </div>
+        <br>
+        <div class="actions">
+            <input type="submit" value="Calculate">
+        </div>
+
+    </form>
+</div>
+<div>
+    {% if  bulls == 4 %}
+        <h1>You WON!</h1>
+    {% else %}
+        <h2>Result: Bulls:{{ bulls }}  Cows:{{ cows }} </h2>
+    {% endif %}
+
+</div>
 </body>
 </html>

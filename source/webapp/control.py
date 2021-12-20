@@ -1,5 +1,4 @@
 from random import randint
-
 class ControlGame():
     def __init__(self, player_nums: dict):
         self.secret_nums = [6, 1, 2, 5]#self.create_secret_nums()
@@ -35,7 +34,6 @@ class ControlGame():
             i += 1
         return cows
 
-
     def parse_nums(self, nums):
         parsed = {
             1: nums[0],
@@ -44,15 +42,3 @@ class ControlGame():
             4: nums[3]
         }
         return parsed
-
-
-
-
-
-d = [6, 1, 5, 2]
-a = ControlGame(d)
-a.print_nums()
-print(a.bulls)
-
-
-
