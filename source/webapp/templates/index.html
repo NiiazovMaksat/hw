@@ -30,6 +30,8 @@
     <h5>{{ secret }}</h5>
     {% if  bulls == 4 %}
         <h1>You WON!</h1>
+    {% elif errors %}
+        <h1>{{ errors }}</h1>
     {% else %}
         <h2>Result: Bulls:{{ bulls }}  Cows:{{ cows }} </h2>
     {% endif %}

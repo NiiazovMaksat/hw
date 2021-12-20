@@ -3,17 +3,17 @@ secret = []
 history = []
 class ControlGame():
     def __init__(self, player_nums: dict):
+        global history
+        history.append(player_nums)
+        self.history = history
         self.secret_nums = secret
         self.create_secret_nums()
         self.player_nums = player_nums
-
         player_nums = self.parse_nums(self.player_nums)
         secret_nums = self.parse_nums(self.secret_nums)
         self.bulls = self.count_bulls(player_nums, secret_nums)
         self.cows = self.count_cows() - self.bulls
-        global history
-        history.append(player_nums)
-        self.history = history
+
 
     def add_player_nums(self, player_nums: dict):
         self.player_nums = player_nums
@@ -52,3 +52,27 @@ class ControlGame():
             4: nums[3]
         }
         return parsed
+
+
+    def check_len(self):
+        if len(self.player_nums) == 4:
+            return True
+        return False
+
+
+    def number_size(self):
+        for i in self.player_nums:
+            if not 0 < i < 11:
+                return False
+        return True
+
+
+
+    #
+    # def check_num(self):
+    #     for i in range(self.numbers):
+    #         for j in range(i + 1, self.numbers):
+    #             if i == j:
+    #                 return False
+    #     return True
+
